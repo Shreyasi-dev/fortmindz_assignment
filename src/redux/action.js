@@ -14,6 +14,7 @@ dispatch({
     payload:data.data
 })
 }catch(err){
+    window.alert(err)
     dispatch({
         type:FETCH_EMPLOYEE_FAIL_REQUEST,
         payload:err.message

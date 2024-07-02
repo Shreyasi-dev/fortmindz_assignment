@@ -49,7 +49,7 @@ toast.success("Employee data has been deleted successfully")
             <TableCell>{employee.employee_name}</TableCell>
             <TableCell>{employee.employee_salary}</TableCell>
             <TableCell>{employee.employee_age}</TableCell>
-            <TableCell>{employee.profile_image}</TableCell>
+            <TableCell style={{width:"5%"}}><img src={employee.profile_image}/></TableCell>
             <TableCell style={{display:"flex", gap:"10px"}}>
               <Button variant="contained" color="primary" onClick={()=>handleEdit(employee.id)}>Edit</Button>
               <Button variant="contained" color="error" onClick={()=>handleDelete(employee.id)}>Delete</Button>
