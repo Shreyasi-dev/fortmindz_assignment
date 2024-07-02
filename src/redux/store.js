@@ -1,19 +1,17 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { employeeReducer } from "./reducer";
-import {thunk} from "redux-thunk";
+import { thunk } from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-// Persist configuration
 const persistConfig = {
-    key: "root",
-    storage,
+  key: "root",
+  storage,
 };
 
-// Combine reducers and persist
 const rootReducer = combineReducers({
-    employee: employeeReducer,
+  employee: employeeReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -22,9 +20,9 @@ const initialState = {};
 const middleware = [thunk];
 
 const store = createStore(
-    persistedReducer,
-    initialState,
-    composeWithDevTools(applyMiddleware(...middleware))
+  persistedReducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
 );
 
 const persistor = persistStore(store);
